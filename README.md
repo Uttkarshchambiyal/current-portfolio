@@ -1,58 +1,65 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=wave&color=0:7c3aed,100:f43f5e&height=200&section=header&text=%F0%9F%96%A5%EF%B8%8F%20Current%20Portfolio&fontSize=44&fontColor=fff&fontAlignY=50" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=diamond&color=0:11998e,100:38ef7d&height=200&section=header&text=%F0%9F%92%BC%20Current%20Portfolio&fontSize=44&fontColor=fff&fontAlignY=55" width="100%" />
 
-[![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
-[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)]()
-[![Stars](https://img.shields.io/github/stars/Uttkarshchambiyal/current-portfolio?style=for-the-badge)]()
+[![Live](https://img.shields.io/badge/Live-Portfolio-38ef7d?style=for-the-badge&logo=vercel&logoColor=black)](https://www.uttkarshchambiyal.com)
 
-> *My current personal portfolio website — clean, responsive, and continuously evolving.*
+*My current personal portfolio website — clean, responsive, and continuously evolving.*
 
 </div>
 
 ---
 
-## 📌 About
+## 🚀 About
 
 This repository hosts my **personal portfolio website** — a live showcase of my projects, skills, and ongoing learning journey as a B.Tech CSE student.
 
 Built with a focus on:
-- 🎨 Clean and minimal design
+- 🤍 Clean and minimal design
 - 📱 Full responsiveness across all screen sizes
 - ⚡ Smooth performance & fast loading
-- 🔗 Live links to all my projects
+- 🎨 Thoughtful UI/UX to reflect personal brand
 
 ---
 
-## ✨ Sections
+## 🔧 Tech Stack
 
-| Section | Content |
+| Technology | Role |
 |---|---|
-| 👤 **About** | Who I am, my background & goals |
-| 🛠️ **Skills** | Technologies I work with |
-| 📁 **Projects** | My best work with live demos |
-| 📞 **Contact** | Ways to reach me |
+| HTML5 | Page structure |
+| CSS3 | Styling & animations |
+| JavaScript | Interactivity |
+| Vercel | Deployment |
 
 ---
 
-## 🛠️ Tech Stack
+## 🌟 Features
 
-| Layer | Tech |
-|---|---|
-| Markup | HTML5 |
-| Styling | CSS3 |
-| Interactivity | JavaScript |
+- ✅ Hero section with personal introduction
+- ✅ Projects showcase with live links
+- ✅ Skills section with tech stack icons
+- ✅ Contact form / social links
+- ✅ Smooth scroll & animations
+- ✅ Mobile-first responsive design
 
 ---
 
-## 🚀 How to View Locally
+## 🔗 Live Website
+
+> Visit: [www.uttkarshchambiyal.com](https://www.uttkarshchambiyal.com)
+
+---
+
+## 📁 Local Setup
 
 ```bash
 # Clone the repo
 git clone https://github.com/Uttkarshchambiyal/current-portfolio.git
 
-# Open index.html in your browser
+# Open in browser
 open index.html
 ```
 
@@ -60,10 +67,8 @@ open index.html
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=wave&color=0:f43f5e,100:7c3aed&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=diamond&color=0:38ef7d,100:11998e&height=120&section=footer" width="100%" />
 
-**Designed & Built by [Uttkarsh Chambiyal](https://github.com/Uttkarshchambiyal)**
-
-⭐ Star if you liked the design!
+**Always iterating, always improving — [Uttkarsh Chambiyal](https://github.com/Uttkarshchambiyal)**
 
 </div>
