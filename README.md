@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=diamond&color=0:11998e,100:38ef7d&height=200&section=header&text=%F0%9F%92%BC%20Current%20Portfolio&fontSize=44&fontColor=fff&fontAlignY=55" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:11998e,100:38ef7d&height=180&section=header&text=%F0%9F%92%BC%20Current%20Portfolio&fontSize=44&fontColor=fff&fontAlignY=55" width="100%" />
 
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)]()
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)]()
@@ -18,7 +18,7 @@
 This repository hosts my **personal portfolio website** — a live showcase of my projects, skills, and ongoing learning journey as a B.Tech CSE student.
 
 Built with a focus on:
-- 🤍 Clean and minimal design
+- ❤️ Clean and minimal design
 - 📱 Full responsiveness across all screen sizes
 - ⚡ Smooth performance & fast loading
 - 🎨 Thoughtful UI/UX to reflect personal brand
@@ -67,7 +67,7 @@ open index.html
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=diamond&color=0:38ef7d,100:11998e&height=120&section=footer" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:38ef7d,100:11998e&height=80&section=footer" width="100%" />
 
 **Always iterating, always improving — [Uttkarsh Chambiyal](https://github.com/Uttkarshchambiyal)**
 
