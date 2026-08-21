@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5" />
+  <title>Uttkarsh Chambiyal – Full-Stack Developer & Software Engineer</title>
+  <meta name="description" content="Portfolio of Uttkarsh Chambiyal. Second-year CS student in Bengaluru building high-performance MERN applications with AI workflows." />
+  <meta property="og:title" content="Uttkarsh Chambiyal – Full-Stack Developer & Software Engineer" />
+  <meta property="og:description" content="Building high-performance web applications using the MERN stack, driven by algorithmic problem-solving and AI-accelerated development workflows." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#101400" />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.prod.website-files.com" crossorigin />
+
+  <!-- Preload Mona Sans Variable Font -->
+  <link rel="preload"
+        href="https://cdn.prod.website-files.com/67b5a02dc5d338960b17a7e9/67bc6274c5b4108b123aa4d5_MonaSans-VariableFont_wdth%2Cwght.woff2"
+        as="font" type="font/woff2" crossorigin />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+  <!-- App Script (bundled via Vite) -->
+  <script type="module" src="/script.js"></script>
+</head>
+<body data-edit="true">
+
+  <!-- Noise grain overlay (exact from original site) -->
+  <div class="noise-overlay"></div>
+
+  <!-- Custom cursor glow (desktop only) -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- Mouse-follow hover image for highlight rows -->
+  <div class="highlight-hover-img" id="highlightHoverImg"></div>
+
+  <!-- ==========================================
+       PAGE LOADER
+       ========================================== -->
+  <div class="page-loader" id="pageLoader">
+    <div class="page-loader-logo">CHAMBIYAL</div>
+    <div class="page-loader-bar-track">
+      <div class="page-loader-bar" id="loaderBar"></div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       SCROLL PROGRESS INDICATOR
+       ========================================== -->
+  <div class="scroll-indicator">
+    <div class="scroll-indicator-bar" id="scrollBar"></div>
+  </div>
+
+  <!-- ==========================================
+       NAVIGATION
+       ========================================== -->
+  <nav class="nav" id="mainNav" data-nav-wrap>
+    <div class="nav-inner">
+      <!-- Brand -->
+      <a href="#" class="nav-brand" title="Uttkarsh Chambiyal">
+        UTTKARSH<span class="accent">CHAMBIYAL</span>
+      </a>
+
+      <!-- Buttons -->
+      <div class="nav-btns" data-nav-group="btns">
+        <a data-theme="lime" href="mailto:uttkarshchambiyal@gmail.com" class="btn-w is-nav">
+          <div class="btn-icon-w">
+            <svg width="17" height="18" viewBox="0 0 17 18" fill="none">
+              <path d="M2 4.5L8.5 10L15 4.5M2 13.5h13V4.5H2v9z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <span>Hire Me</span>
+        </a>
+        <button class="nav-ham" id="navHam" title="Open / Close Menu">
+          <div class="nav-rive-w">
+            <canvas data-rive-nav-hamburger id="riveHamburger" width="44" height="44"></canvas>
+          </div>
+          <span class="nav-ham-line"></span>
+          <span class="nav-ham-line"></span>
+          <span class="nav-ham-line"></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Full-screen Menu Overlay -->
+  <div class="nav-menu-w" id="navMenu">
+    <div class="nav-menu-inner">
+      <a href="#hero" class="nav-menu-link" data-menu-link>Home</a>
+      <a href="#stats" class="nav-menu-link" data-menu-link>Stats</a>
+      <a href="#career" class="nav-menu-link" data-menu-link>Career</a>
+      <a href="#projects" class="nav-menu-link" data-menu-link>Projects</a>
+      <a href="#experience" class="nav-menu-link" data-menu-link>Experience</a>
+      <a href="#contact" class="nav-menu-link" data-menu-link>Contact</a>
+      <div class="nav-menu-social-w">
+        <a href="https://github.com/uttkarshchambiyal" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/uttkarshchambiyal" target="_blank">LinkedIn</a>
+        <a href="https://x.com/uttkarshchamb" target="_blank">X / Twitter</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================
+       MAIN CONTENT
+       ========================================== -->
+  <main class="main-w">
+
+    <!-- ==========================================
+         SECTION 1 — HERO (ON-TRACK STYLE)
+         ========================================== -->
+    <section class="s-hero" id="hero" data-nav-theme-target="light">
+
+      <!-- Hero Title -->
+      <div class="hero-title-w">
+        <!-- Rive-style animated title accent (like original's phrase_on canvas) -->
+        <div class="hero-title-rive-w">
+          <canvas data-rive-hero-title id="riveHeroTitle" width="200" height="60"></canvas>
+        </div>
+        <div class="hero-title-top" split-text="lines" data-anim-high="right, lime">Full-Stack Developer</div>
+        <div class="hero-title-main" split-text="lines,chars" data-oval-scroll="top">CHAMBIYAL</div>
+      </div>
+
+      <!-- WebGL 3D Background Canvas (like original's GL helmet scroll) -->
+      <canvas id="webglCanvas" class="webgl-canvas"></canvas>
+
+      <!-- Hero Info Grid — exact layout from on-track -->
+      <div class="hero-info-grid">
+        <div class="hero-sub-w">
+          <div class="text-on-t-stat-label-reg" split-text="lines" data-anim-high="right, lime">Uttkarsh Chambiyal</div>
+          <div style="display:flex;flex-direction:column;gap:0.25rem;">
+            <div class="text-on-t-stat-label-reg" split-text="lines" data-anim-high="right, lime">20 y.o</div>
+            <div class="on-t-stat-label-flex">
+              <div class="text-on-t-stat-label-reg" split-text="lines" data-anim-high="right, lime">Bengaluru, India</div>
+              <span style="font-size:1rem;">🇮🇳</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Stats Widget Area -->
+        <div class="hero-stats-ui-w">
+          <div class="hero-stats-para-w">
+            <div class="eyebrow-w c-grey-on-track">
+              <div class="text-eyebrow" split-text="lines" data-anim-high="right, lime">building the future</div>
+            </div>
+            <h2 class="text-body-lg-mona" split-text="lines" data-anim-high="right, lime" style="margin-top:0.75rem;">
+              Second-year Computer Science student based in Bengaluru. Building high-performance web applications using the MERN stack, driven by <span class="text-body-lg-brier c-lime">algorithmic problem-solving</span> and AI-accelerated development.
+            </h2>
+          </div>
+
+          <!-- Stat UI Boxes — exact pattern from on-track hero -->
+          <div class="hero-stats-grid">
+            <div class="hero-stats-ui-box">
+              <div class="eyebrow-w c-grey-on-track eyebrow-label">
+                <div class="text-eyebrow">Previous Focus</div>
+              </div>
+              <div class="text-on-t-stat-label-reg">Startup MVP Systems</div>
+            </div>
+            <div class="hero-stats-ui-box">
+              <div class="eyebrow-w c-grey-on-track eyebrow-label">
+                <div class="text-eyebrow">Current Status</div>
+              </div>
+              <div class="text-on-t-stat-label-reg">Seeking SWE Internships</div>
+            </div>
+            <div class="hero-stats-ui-box">
+              <div class="eyebrow-w c-grey-on-track eyebrow-label">
+                <div class="text-eyebrow">Core Architecture</div>
+              </div>
+              <div class="text-on-t-stat-label-reg">MERN + AI Workflows</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 2 — IMPACT TEXT (exact from on-track)
+         ========================================== -->
+    <section class="s" id="impact">
+      <div class="c">
+        <div class="impact-content-w on-track">
+          <div class="impact-icon-w">
+            <div class="eyebrow-w c-grey-on-track">
+              <div class="text-eyebrow" split-text="lines" data-anim-high="right, lime">CS student since 2023</div>
+            </div>
+          </div>
+          <div class="on-track-impact-text-w">
+            <div class="text-impact-lg-mona" split-text="lines" data-anim-high="top">
+              Challenging<br>the <strong>limits</strong>, <strong>building</strong> products. Bringing <strong>it all</strong> each and every sprint.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 3 — STAT COUNTER GRID (6 metrics)
+         ========================================== -->
+    <section class="s" id="stats">
+      <div class="c">
+
+        <!-- Podium-style big number -->
+        <div class="on-t-podium-text-layout">
+          <div class="text-on-t-stat-label-gigantic" data-counter-big>15</div>
+          <div class="on-t-podium-text-col">
+            <div class="text-on-t-large-number">projects</div>
+          </div>
+        </div>
+
+        <div class="spacer._8rem" style="height:6rem;"></div>
+
+        <!-- 6-item grid -->
+        <div class="stat-counter-grid">
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="15">0</span><span class="stat-counter-suffix">+</span></div>
+            <div class="stat-counter-label">Production Projects</div>
+          </div>
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="500">0</span><span class="stat-counter-suffix">+</span></div>
+            <div class="stat-counter-label">DSA Problems Solved</div>
+          </div>
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="10000">0</span><span class="stat-counter-suffix">+</span></div>
+            <div class="stat-counter-label">Lines of Code</div>
+          </div>
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="5">0</span></div>
+            <div class="stat-counter-label">Tech Stacks Mastered</div>
+          </div>
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="3">0</span></div>
+            <div class="stat-counter-label">Hackathon Entries</div>
+          </div>
+          <div class="stat-counter-item">
+            <div class="stat-counter-num"><span data-counter="100">0</span><span class="stat-counter-suffix">%</span></div>
+            <div class="stat-counter-label">AI-Accelerated Workflow</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         MARQUEE DIVIDER
+         ========================================== -->
+    <div class="marquee-w">
+      <div class="marquee-track">
+        <div class="marquee-item">REACT<span class="dot">·</span>NODE.JS<span class="dot">·</span>MONGODB<span class="dot">·</span>EXPRESS<span class="dot">·</span>NEXT.JS<span class="dot">·</span>AI/ML<span class="dot">·</span>GSAP<span class="dot">·</span>TAILWIND</div>
+        <div class="marquee-item">REACT<span class="dot">·</span>NODE.JS<span class="dot">·</span>MONGODB<span class="dot">·</span>EXPRESS<span class="dot">·</span>NEXT.JS<span class="dot">·</span>AI/ML<span class="dot">·</span>GSAP<span class="dot">·</span>TAILWIND</div>
+      </div>
+    </div>
+
+
+    <!-- ==========================================
+         SECTION 4 — CAREER STATS (F1 career style)
+         ========================================== -->
+    <section class="s" id="career">
+      <div class="c">
+        <div class="title-layout grid-main">
+          <div class="title-headline-w">
+            <h2 class="text-title-lg-mona" split-text="lines" data-anim-high="right, lime">
+              dev career<br><span class="text-title-lg-brier c-grey-on-track">since 2023</span>
+            </h2>
+          </div>
+          <div class="title-para-w c-grey-on-track">
+            <p class="text-body-reg-mona" split-text="lines" data-anim-high="right, lime">
+              Throughout my journey as a developer, I have built full-stack applications, contributed to open-source projects, and competed in hackathons across India.
+            </p>
+          </div>
+        </div>
+
+        <!-- 4-column stats grid — exact pattern from on-track's F1 career stats -->
+        <div class="f1-car-stats-grid">
+          <div class="f1-car-stats-item">
+            <div class="eyebrow-w c-grey-on-track">
+              <h3 class="text-descriptor" split-text="lines" data-anim-high="right, lime">production<br>projects</h3>
+            </div>
+            <div class="f1-car-stats-large-num-w">
+              <div class="text-on-t-large-number" data-car-counter="digit">15</div>
+            </div>
+          </div>
+
+          <div class="f1-car-stats-item">
+            <div class="eyebrow-w c-grey-on-track">
+              <h3 class="text-descriptor" split-text="lines" data-anim-high="right, lime">github<br>repositories</h3>
+            </div>
+            <div class="f1-car-stats-large-num-w">
+              <div class="text-on-t-large-number" data-car-counter="digit">25</div>
+            </div>
+          </div>
+
+          <div class="f1-car-stats-item">
+            <div class="eyebrow-w c-grey-on-track">
+              <h3 class="text-descriptor" split-text="lines" data-anim-high="right, lime">api<br>integrations</h3>
+            </div>
+            <div class="f1-car-stats-large-num-w">
+              <div class="text-on-t-large-number" data-car-counter="digit">20</div>
+            </div>
+          </div>
+
+          <div class="f1-car-stats-item">
+            <div class="eyebrow-w c-grey-on-track">
+              <h3 class="text-descriptor" split-text="lines" data-anim-high="right, lime">commits<br>this year</h3>
+            </div>
+            <div class="f1-car-stats-large-num-w">
+              <div class="text-on-t-large-number" data-car-counter="digit">800</div>
+            </div>
+          </div>
+
+          <!-- Season / Skills table — like on-track's F1 Seasons -->
+          <div class="f1-car-stat-past-v2-w">
+            <div class="eyebrow-w c-grey-on-track" style="margin-bottom:0.5rem;">
+              <h3 class="text-descriptor" split-text="lines" data-anim-high="right, lime">Skill Areas</h3>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item top">
+              <div class="f1-car-stat-past-v2-grid-inner">
+                <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Area</div></div>
+              </div>
+              <div class="f1-car-stat-past-v2-grid-inner">
+                <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Level</div></div>
+              </div>
+              <div class="f1-car-stat-past-v2-grid-inner">
+                <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Projects</div></div>
+              </div>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item" data-stat-item>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Frontend</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Advanced</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">12</div></div>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item" data-stat-item>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Backend</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Advanced</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">10</div></div>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item" data-stat-item>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Database</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Intermediate</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">8</div></div>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item" data-stat-item>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">DevOps</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Intermediate</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">5</div></div>
+            </div>
+            <div class="f1-car-stat-past-v2-grid-item" data-stat-item>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">AI / ML</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">Learning</div></div>
+              <div class="f1-car-stat-past-v2-grid-inner"><div class="text-on-t-stat-label-reg">3</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA — exact button style from on-track -->
+        <a data-theme="lime" href="https://github.com/uttkarshchambiyal" target="_blank" class="btn-w" data-anim="text-hover">
+          <span>View All Projects on GitHub</span>
+          <div class="btn-icon-w">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </a>
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 5 — RESULT HIGHLIGHTS (project highlights)
+         ========================================== -->
+    <section class="s" id="highlights">
+      <div class="c">
+        <div class="title-layout grid-main">
+          <div class="title-headline-w">
+            <h2 class="text-title-lg-mona" split-text="lines" data-anim-high="right, lime">
+              project<br><span class="text-title-lg-brier c-grey-on-track">highlights</span>
+            </h2>
+          </div>
+          <div class="title-para-w c-grey-on-track">
+            <p class="text-body-reg-mona" split-text="lines" data-anim-high="right, lime">
+              Key projects that showcase full-stack development, API design, real-time features, and production-grade architecture.
+            </p>
+          </div>
+        </div>
+
+        <!-- Column headers — exact from on-track f1 highlights -->
+        <div class="f1-highlight-grid top highlights">
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Type</div></div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Project</div></div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Stack</div></div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Status</div></div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="eyebrow-w c-grey-on-track"><div class="text-eyebrow">Impact</div></div>
+          </div>
+        </div>
+
+        <!-- Row items — exact grid pattern -->
+        <div class="f1-highlight-grid is-highlights" data-stat-item>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-major">Web App</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">RealChat</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">MERN + Socket.io</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major" style="color:var(--color--lime);">Live</div>
+            <div class="f1-highlight-trophy-w">
+              <svg viewBox="0 0 24 24" fill="var(--color--lime)"><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-reg">Real-time messaging, 1K+ MAU</div>
+          </div>
+        </div>
+
+        <div class="f1-highlight-grid is-highlights" data-stat-item>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-major">Platform</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">DevConnect</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">Next.js + MongoDB</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major" style="color:var(--color--lime);">Live</div>
+            <div class="f1-highlight-trophy-w">
+              <svg viewBox="0 0 24 24" fill="var(--color--lime)"><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-reg">Dev social network, auth + feeds</div>
+          </div>
+        </div>
+
+        <div class="f1-highlight-grid is-highlights" data-stat-item>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-major">API</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">PayFlow</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">Express + Stripe</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major" style="color:var(--color--lime-off);">Beta</div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-reg">Payment processing, webhooks</div>
+          </div>
+        </div>
+
+        <div class="f1-highlight-grid is-highlights" data-stat-item>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-major">Tool</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">AI Code Reviewer</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">Python + OpenAI</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major" style="color:var(--color--lime);">Live</div>
+            <div class="f1-highlight-trophy-w">
+              <svg viewBox="0 0 24 24" fill="var(--color--lime)"><circle cx="12" cy="12" r="5"/></svg>
+            </div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-reg">GPT-powered PR review bot</div>
+          </div>
+        </div>
+
+        <div class="f1-highlight-grid is-highlights" data-stat-item>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-major">Dashboard</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">CloudMetrics</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">React + D3.js</div>
+          </div>
+          <div class="f1-highlight-grid-item">
+            <div class="text-on-t-stat-label-major">Complete</div>
+          </div>
+          <div class="f1-highlight-grid-item hide-mobile">
+            <div class="text-on-t-stat-label-reg">Real-time monitoring dashboard</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 6 — EXPERIENCE ACCORDION (Season/Calendar style)
+         ========================================== -->
+    <section class="s" id="experience">
+      <div class="c">
+        <div class="title-layout grid-main">
+          <div class="title-headline-w">
+            <h2 class="text-title-lg-mona" split-text="lines" data-anim-high="right, lime">
+              experience<br><span class="text-title-lg-brier c-grey-on-track">timeline</span>
+            </h2>
+          </div>
+        </div>
+
+        <!-- Accordion items — exact pattern from calendar dropdowns -->
+        <div class="calendar-dropdown-item" data-accordion>
+          <div class="calendar-dropdown-trigger" data-accordion-trigger>
+            <div class="text-on-t-stat-label-major">2025</div>
+            <div class="text-on-t-stat-label-major">Full-Stack Developer — Freelance</div>
+            <div class="text-on-t-stat-label-reg c-grey-on-track">Current</div>
+            <div class="calendar-dropdown-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="calendar-dropdown-content">
+            <div class="calendar-dropdown-content-inner">
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Role</div>
+                <div class="text-on-t-stat-label-reg">Full-Stack Developer</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Stack</div>
+                <div class="text-on-t-stat-label-reg">React, Node.js, MongoDB, Express</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Impact</div>
+                <div class="text-on-t-stat-label-reg">Built 5+ production MVPs for startups. Delivered end-to-end features including auth, payments, real-time messaging, and admin dashboards.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calendar-dropdown-item" data-accordion>
+          <div class="calendar-dropdown-trigger" data-accordion-trigger>
+            <div class="text-on-t-stat-label-major">2024</div>
+            <div class="text-on-t-stat-label-major">Open-Source Contributor</div>
+            <div class="text-on-t-stat-label-reg c-grey-on-track">Ongoing</div>
+            <div class="calendar-dropdown-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="calendar-dropdown-content">
+            <div class="calendar-dropdown-content-inner">
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Focus</div>
+                <div class="text-on-t-stat-label-reg">JavaScript tooling & UI libraries</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Contributions</div>
+                <div class="text-on-t-stat-label-reg">15+ merged PRs across multiple repos</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Impact</div>
+                <div class="text-on-t-stat-label-reg">Performance improvements, bug fixes, and documentation enhancements for popular open-source projects.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="calendar-dropdown-item" data-accordion>
+          <div class="calendar-dropdown-trigger" data-accordion-trigger>
+            <div class="text-on-t-stat-label-major">2023</div>
+            <div class="text-on-t-stat-label-major">CS Student — University</div>
+            <div class="text-on-t-stat-label-reg c-grey-on-track">Ongoing</div>
+            <div class="calendar-dropdown-chevron">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+            </div>
+          </div>
+          <div class="calendar-dropdown-content">
+            <div class="calendar-dropdown-content-inner">
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Degree</div>
+                <div class="text-on-t-stat-label-reg">B.Tech Computer Science & Engineering</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Relevant Coursework</div>
+                <div class="text-on-t-stat-label-reg">Data Structures, Algorithms, DBMS, OS, Computer Networks</div>
+              </div>
+              <div class="calendar-detail-item">
+                <div class="text-eyebrow" style="color:var(--color--lime-off);">Activities</div>
+                <div class="text-on-t-stat-label-reg">Hackathon team lead, coding club member, peer mentor for DSA bootcamps.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 7 — PROJECT GALLERY (Helmet Gallery style)
+         ========================================== -->
+    <section class="s" id="projects">
+      <div class="c">
+        <div class="title-layout grid-main">
+          <div class="title-headline-w">
+            <h2 class="text-title-lg-mona" split-text="lines" data-anim-high="right, lime">
+              featured<br><span class="text-title-lg-brier c-grey-on-track">projects</span>
+            </h2>
+          </div>
+        </div>
+
+        <div class="helmet-grid">
+          <!-- Project 1 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #1a1a2e, #16213e);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #0f3460, #533483);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow c-lime">MERN + Socket.io</div></div>
+              <div class="helmet-grid-item-title">RealChat</div>
+              <div class="helmet-grid-item-desc">Real-time messaging platform with WebSocket integration, typing indicators, and end-to-end encryption.</div>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #2d132c, #801336);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #c72c41, #ee4540);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow c-lime">Next.js + MongoDB</div></div>
+              <div class="helmet-grid-item-title">DevConnect</div>
+              <div class="helmet-grid-item-desc">Social platform for developers with authentication, feed algorithms, and project showcases.</div>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #0a3d62, #3c6382);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #60a3bc, #82ccdd);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow c-lime">Express + Stripe</div></div>
+              <div class="helmet-grid-item-title">PayFlow</div>
+              <div class="helmet-grid-item-desc">Payment processing system with Stripe integration, webhook handling, and subscription management.</div>
+            </div>
+          </div>
+
+          <!-- Project 4 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #1b1a17, #3d3c3a);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #f0a500, #cf7500);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow c-lime">Python + OpenAI</div></div>
+              <div class="helmet-grid-item-title">AI Code Reviewer</div>
+              <div class="helmet-grid-item-desc">GPT-powered automated code review bot that integrates with GitHub PRs for quality checks.</div>
+            </div>
+          </div>
+
+          <!-- Project 5 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #1a1a1a, #2d2d2d);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #d2ff00, #a8cc00);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow" style="color:var(--color--dark-green);">React + D3.js</div></div>
+              <div class="helmet-grid-item-title" style="color:var(--color--dark-green);">CloudMetrics</div>
+              <div class="helmet-grid-item-desc" style="color:rgba(16,20,0,0.7);">Real-time cloud infrastructure monitoring dashboard with dynamic charts and alerting.</div>
+            </div>
+          </div>
+
+          <!-- Project 6 -->
+          <div class="helmet-grid-item-w" data-helmet-item>
+            <div class="helmet-grid-item-bg" style="background: linear-gradient(135deg, #0c0c1d, #1a1a3e);"></div>
+            <div class="helmet-grid-item-reveal-img" style="background: linear-gradient(135deg, #6c5ce7, #a29bfe);"></div>
+            <div class="helmet-grid-extender-icon">↗</div>
+            <div class="helmet-grid-item-content">
+              <div class="eyebrow-w"><div class="text-eyebrow c-lime">React Native</div></div>
+              <div class="helmet-grid-item-title">FitTrack</div>
+              <div class="helmet-grid-item-desc">Cross-platform fitness tracking app with workout logs, progress charts, and social sharing.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 8 — CONTACT (Social Cards style)
+         ========================================== -->
+    <section class="s" id="contact">
+      <div class="c">
+        <div class="impact-content-w" style="align-items:center;text-align:center;">
+          <div class="eyebrow-w c-grey-on-track">
+            <div class="text-eyebrow" split-text="lines" data-anim-high="right, lime">get in touch</div>
+          </div>
+          <div class="text-impact-lg-mona" split-text="lines" data-anim-high="top" style="max-width:50rem;">
+            Let's <strong>build</strong> something <strong>great</strong> together.
+          </div>
+          <div class="contact-links" style="margin-top:2rem;">
+            <a data-theme="lime" href="mailto:uttkarshchambiyal@gmail.com" class="btn-w">
+              <span>Email Me</span>
+              <div class="btn-icon-w">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </a>
+            <a data-theme="outline" href="https://github.com/uttkarshchambiyal" target="_blank" class="btn-w">
+              <span>GitHub</span>
+              <div class="btn-icon-w">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </a>
+            <a data-theme="outline" href="https://linkedin.com/in/uttkarshchambiyal" target="_blank" class="btn-w">
+              <span>LinkedIn</span>
+              <div class="btn-icon-w">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </a>
+            <a data-theme="outline" href="https://x.com/uttkarshchamb" target="_blank" class="btn-w">
+              <span>X / Twitter</span>
+              <div class="btn-icon-w">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 12L12 4M12 4H5M12 4v7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SOCIAL CARDS — HORIZONTAL SCROLL
+         (exact from landonorris.com callout-socials)
+         ========================================== -->
+    <section class="social-cards-section">
+      <div class="social-cards-title">
+        <div class="eyebrow-w c-grey-on-track">
+          <div class="text-eyebrow" split-text="lines" data-anim-high="right, lime">connect</div>
+        </div>
+        <h2 class="text-title-lg-mona" split-text="lines" data-anim-high="right, lime" style="margin-top:0.75rem;">follow along</h2>
+      </div>
+      <div class="callout-socials-w" id="socialCardsScroll">
+        <div class="callout-socials-track">
+          <a href="https://github.com/uttkarshchambiyal" target="_blank" class="callout-socials-card-w">
+            <div class="callout-socials-card-bg" style="background:linear-gradient(135deg, #0d1117, #161b22);"></div>
+            <div class="callout-socials-card-content">
+              <div class="callout-socials-card-label">GitHub</div>
+              <div class="callout-socials-card-title">Code & Commits</div>
+            </div>
+          </a>
+          <a href="https://linkedin.com/in/uttkarshchambiyal" target="_blank" class="callout-socials-card-w">
+            <div class="callout-socials-card-bg" style="background:linear-gradient(135deg, #0077b5, #004182);"></div>
+            <div class="callout-socials-card-content">
+              <div class="callout-socials-card-label">LinkedIn</div>
+              <div class="callout-socials-card-title">Professional Network</div>
+            </div>
+          </a>
+          <a href="https://x.com/uttkarshchamb" target="_blank" class="callout-socials-card-w">
+            <div class="callout-socials-card-bg" style="background:linear-gradient(135deg, #14171a, #1da1f2);"></div>
+            <div class="callout-socials-card-content">
+              <div class="callout-socials-card-label">X / Twitter</div>
+              <div class="callout-socials-card-title">Thoughts & Updates</div>
+            </div>
+          </a>
+          <a href="mailto:uttkarshchambiyal@gmail.com" class="callout-socials-card-w">
+            <div class="callout-socials-card-bg" style="background:linear-gradient(135deg, #101400, #2a3000);"></div>
+            <div class="callout-socials-card-content">
+              <div class="callout-socials-card-label">Email</div>
+              <div class="callout-socials-card-title">Let's Collaborate</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="footer" id="footer">
+    <!-- Footer marquee (exact from original site) -->
+    <div class="footer-marquee">
+      <div class="footer-marquee-track">
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+        <div class="footer-marquee-item">CHAMBIYAL</div>
+      </div>
+    </div>
+
+    <div class="footer-brand">UTTKARSH CHAMBIYAL</div>
+
+    <div class="footer-layout" style="margin-top:3rem;">
+      <div class="footer-col">
+        <div class="footer-col-title">About</div>
+        <p class="text-body-reg-mona" style="color:var(--color--grey-1);max-width:35ch;">
+          Second-year CS student in Bengaluru. Building high-performance web applications with the MERN stack.
+        </p>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Navigation</div>
+        <a href="#hero">Home</a>
+        <a href="#career">Career</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Social</div>
+        <a href="https://github.com/uttkarshchambiyal" target="_blank">GitHub</a>
+        <a href="https://linkedin.com/in/uttkarshchambiyal" target="_blank">LinkedIn</a>
+        <a href="https://x.com/uttkarshchamb" target="_blank">X / Twitter</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Contact</div>
+        <a href="mailto:uttkarshchambiyal@gmail.com">Email</a>
+        <span class="text-body-reg-mona" style="color:var(--color--grey-on-track);font-size:0.75rem;">Bengaluru, India 🇮🇳</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-text">© 2025 Uttkarsh Chambiyal. All rights reserved.</div>
+      <button class="footer-back-top" id="backToTop">Back to top ↑</button>
+    </div>
+  </footer>
+
+</body>
+</html>
