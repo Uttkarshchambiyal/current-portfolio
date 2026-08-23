@@ -1283,7 +1283,7 @@ p,
   line-height: 1.1;
 }
 
-/* ---------- 10. FOOTER — LANDO NORRIS STYLE ---------- */
+/* ---------- 10. FOOTER ---------- */
 .footer-ln {
   position: relative;
   background: #1a1e05;
@@ -1293,29 +1293,48 @@ p,
   z-index: 10;
 }
 
-/* Content area: holds hero text, centered image, and nav columns */
+/* Animated lime glow orb — visual centerpiece */
+.footer-ln-glow {
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(300px, 50vw, 600px);
+  height: clamp(300px, 50vw, 600px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(210, 255, 0, 0.12) 0%, rgba(210, 255, 0, 0.04) 40%, transparent 70%);
+  filter: blur(60px);
+  pointer-events: none;
+  animation: footer-glow-pulse 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes footer-glow-pulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* Content area */
 .footer-ln-content {
   position: relative;
-  min-height: 80vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: clamp(4rem, 8vw, 8rem) var(--container-padding) clamp(2rem, 4vw, 4rem);
+  padding: clamp(5rem, 10vw, 10rem) var(--container-padding) 0;
+  z-index: 1;
 }
 
-/* Hero statement — centered above the image */
+/* Hero statement */
 .footer-ln-hero-text {
   font-family: 'Mona Sans', sans-serif;
   font-variation-settings: "wght" 800, "wdth" 90;
-  font-size: clamp(2.5rem, 7vw, 7rem);
+  font-size: clamp(3rem, 8vw, 9rem);
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 0.9;
   letter-spacing: -0.04em;
   color: var(--color--white);
   text-align: center;
-  position: relative;
-  z-index: 3;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
 }
 
 .footer-ln-hero-text em {
@@ -1325,41 +1344,19 @@ p,
   color: var(--color--lime);
 }
 
-/* Centered person image — like Lando's helmet */
-.footer-ln-image {
-  position: relative;
-  z-index: 2;
-  margin-top: -2rem;
-  display: flex;
-  justify-content: center;
-}
-
-.footer-ln-image img {
-  height: clamp(250px, 40vw, 480px);
-  width: auto;
-  object-fit: contain;
-  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
-}
-
-/* Navigation — positioned at bottom of content, flanking the image */
+/* Navigation — side-by-side below hero text */
 .footer-ln-nav {
-  position: absolute;
-  bottom: clamp(3rem, 6vw, 6rem);
-  left: 0;
-  right: 0;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 0 clamp(2rem, 6vw, 8rem);
-  z-index: 4;
-  pointer-events: none;
+  padding-bottom: clamp(3rem, 5vw, 5rem);
 }
 
 .footer-ln-nav-col {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  pointer-events: auto;
 }
 
 .footer-ln-nav-left {
@@ -1384,7 +1381,7 @@ p,
 .footer-ln-nav-link {
   font-family: 'Mona Sans', sans-serif;
   font-variation-settings: "wght" 700, "wdth" 95;
-  font-size: clamp(0.95rem, 1.5vw, 1.25rem);
+  font-size: clamp(1rem, 1.6vw, 1.375rem);
   text-transform: uppercase;
   letter-spacing: -0.01em;
   color: var(--color--white);
@@ -1403,13 +1400,13 @@ p,
   color: var(--color--lime) !important;
 }
 
-/* CTA button area */
+/* CTA */
 .footer-ln-cta {
   display: flex;
   justify-content: center;
-  padding: clamp(1.5rem, 3vw, 3rem) 0;
+  padding: 0 0 clamp(2rem, 4vw, 4rem);
   position: relative;
-  z-index: 5;
+  z-index: 2;
 }
 
 /* Marquee */
@@ -1465,16 +1462,12 @@ p,
 
 /* Footer responsive */
 @media (max-width: 767px) {
-  .footer-ln-content {
-    min-height: 60vh;
+  .footer-ln-hero-text {
+    font-size: clamp(2.5rem, 10vw, 5rem);
   }
   .footer-ln-nav {
-    position: relative;
-    bottom: auto;
-    padding: 2rem var(--container-padding);
-  }
-  .footer-ln-image img {
-    height: 200px;
+    padding: 0 var(--container-padding);
+    padding-bottom: 3rem;
   }
   .footer-ln-bottom {
     flex-direction: column;
@@ -1485,7 +1478,7 @@ p,
 
 @media (max-width: 479px) {
   .footer-ln-hero-text {
-    font-size: clamp(2rem, 10vw, 3.5rem);
+    font-size: clamp(2rem, 12vw, 3.5rem);
   }
   .footer-ln-nav {
     flex-direction: column;
