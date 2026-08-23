@@ -132,6 +132,15 @@ function initAll() {
 
   // [STACK 1 + 4] GSAP ScrollTrigger — section parallax
   initParallax();
+
+  // [STACK 1] GSAP — cinematic section reveals
+  initCinematicReveals();
+
+  // [STACK 1] GSAP — magnetic button hover
+  initMagneticButtons();
+
+  // [STACK 1 + 2] GSAP + Lenis — scroll velocity effects
+  initScrollVelocityEffects();
 }
 
 
@@ -296,6 +305,39 @@ function initHeroTimeline() {
       stagger: 0.12, duration: 0.6,
     }, 0.8);
   }
+
+  // [GSAP ScrollTrigger] Hero scroll-driven parallax — Lando-style depth
+  const heroSection = document.querySelector('.s-hero');
+  if (heroSection) {
+    // Title moves up faster than scroll
+    if (heroMain) {
+      gsap.to(heroMain, {
+        yPercent: -60, ease: 'none',
+        scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+    if (heroTop) {
+      gsap.to(heroTop, {
+        yPercent: -40, ease: 'none',
+        scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+    // Info grid moves slower
+    if (heroInfo) {
+      gsap.to(heroInfo, {
+        yPercent: -20, ease: 'none',
+        scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+    // WebGL canvas scales down subtly
+    const webglCanvas = document.getElementById('webglCanvas');
+    if (webglCanvas) {
+      gsap.to(webglCanvas, {
+        scale: 0.9, opacity: 0.15, ease: 'none',
+        scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+  }
 }
 
 
@@ -364,11 +406,12 @@ function initScrollReveals() {
     });
   }
 
-  // Career stat columns
+  // Career stat columns — enhanced with scale + rotation
   const carStats = document.querySelectorAll('.f1-car-stats-item');
   if (carStats.length) {
     gsap.from(carStats, {
-      opacity: 0, y: 30, stagger: 0.1, duration: 0.6, ease: 'power3.out',
+      opacity: 0, y: 40, scale: 0.92, rotateX: -5,
+      stagger: 0.15, duration: 0.8, ease: 'power3.out',
       scrollTrigger: { trigger: carStats[0], start: 'top 85%', once: true },
     });
   }
@@ -401,6 +444,11 @@ function initCounters() {
             el.textContent = target >= 1000
               ? Math.round(obj.val).toLocaleString()
               : Math.round(obj.val);
+          },
+          onComplete: () => {
+            // Add glow class when counter finishes
+            const numEl = el.closest('.stat-counter-num');
+            if (numEl) numEl.classList.add('is-done');
           }
         });
       }
@@ -990,6 +1038,102 @@ function initParallax() {
       scrollTrigger: { trigger: techMarquee, start: 'top bottom', end: 'bottom top', scrub: 1 },
     });
   }
+}
+
+
+/* ════════════════════════════════════════════
+   [STACK 1: GSAP ScrollTrigger] — Cinematic Section Reveals
+   Clip-path scrubbed transitions between sections
+   ════════════════════════════════════════════ */
+function initCinematicReveals() {
+  // Apply reveal to all sections except hero
+  document.querySelectorAll('.s').forEach(section => {
+    if (section.classList.contains('s-hero')) return;
+    section.setAttribute('data-reveal', '');
+
+    gsap.to(section, {
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 90%',
+        end: 'top 40%',
+        scrub: 0.5,
+        onUpdate: (self) => {
+          const p = self.progress;
+          const inset = 8 * (1 - p);
+          const side = 4 * (1 - p);
+          const radius = 1 * (1 - p);
+          section.style.clipPath = `inset(${inset}% ${side}% ${inset}% ${side}% round ${radius}rem)`;
+        },
+        onLeaveBack: () => {
+          section.style.clipPath = `inset(8% 4% 8% 4% round 1rem)`;
+        }
+      }
+    });
+  });
+}
+
+
+/* ════════════════════════════════════════════
+   [STACK 1: GSAP] — Magnetic Button Hover
+   Buttons subtly pull toward cursor position
+   ════════════════════════════════════════════ */
+function initMagneticButtons() {
+  if (window.innerWidth < 992) return; // Desktop only
+
+  document.querySelectorAll('.btn-w').forEach(btn => {
+    const strength = 0.3;
+
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) * strength;
+      const dy = (e.clientY - cy) * strength;
+
+      gsap.to(btn, {
+        x: dx, y: dy,
+        duration: 0.4, ease: 'power2.out'
+      });
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      gsap.to(btn, {
+        x: 0, y: 0,
+        duration: 0.6, ease: 'elastic.out(1, 0.5)'
+      });
+    });
+  });
+}
+
+
+/* ════════════════════════════════════════════
+   [STACK 1 + 2: GSAP + Lenis] — Scroll Velocity Effects
+   Content skews based on scroll speed, marquee accelerates
+   ════════════════════════════════════════════ */
+function initScrollVelocityEffects() {
+  if (!lenis) return;
+
+  const mainContent = document.querySelector('.main-w');
+  const marquees = document.querySelectorAll('.marquee-track, .footer-marquee-track');
+  let currentSkew = 0;
+
+  gsap.ticker.add(() => {
+    const velocity = lenis.velocity || 0;
+    const targetSkew = Math.max(-2, Math.min(2, velocity * 0.04));
+    currentSkew += (targetSkew - currentSkew) * 0.1;
+
+    if (mainContent && Math.abs(currentSkew) > 0.01) {
+      mainContent.style.transform = `skewY(${currentSkew}deg)`;
+    } else if (mainContent) {
+      mainContent.style.transform = '';
+    }
+
+    // Marquee speed boost on fast scroll
+    marquees.forEach(m => {
+      const boost = 1 + Math.abs(velocity) * 0.003;
+      m.style.animationDuration = `${30 / boost}s`;
+    });
+  });
 }
 
 
