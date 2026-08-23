@@ -2109,32 +2109,135 @@ canvas[data-rive-hero-title] {
 }
 
 /* ---------- RESPONSIVE REFINEMENTS ---------- */
+
+/* ===== TABLET (max-width: 991px) ===== */
+@media (max-width: 991px) {
+  .cursor-glow {
+    display: none;
+  }
+
+  .hero-title-main {
+    font-size: clamp(3rem, 10vw, 7rem);
+  }
+
+  .hero-stats-grid {
+    flex-wrap: wrap;
+  }
+
+  .hero-stats-ui-box {
+    min-width: 45%;
+  }
+
+  .stat-counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .helmet-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .spacer._8rem,
+  .spacer._10rem,
+  .spacer._12rem,
+  .spacer._14rem {
+    height: 4rem;
+  }
+
+  .webgl-canvas {
+    opacity: 0.25;
+  }
+
+  .nav-btns .btn-w {
+    display: none;
+  }
+}
+
+/* ===== MOBILE LANDSCAPE (max-width: 767px) ===== */
 @media (max-width: 767px) {
   .hero-title-rive-w {
     display: none;
   }
 
-  .f1-car-stats-grid {
-    gap: calc(var(--gap) * 1.5);
+  .hero-title-main {
+    font-size: clamp(2.5rem, 12vw, 5rem);
   }
 
-  .helmet-grid {
-    gap: calc(var(--gap) * 0.75);
+  .hero-title-top {
+    font-size: clamp(1.25rem, 4vw, 2rem);
   }
 
-  .footer-layout {
-    gap: calc(var(--gap) * 2);
+  .hero-info-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 
-  .stat-counter-grid {
-    gap: calc(var(--gap) * 0.5);
+  .hero-stats-grid {
+    flex-direction: column;
   }
 
+  .hero-stats-ui-box {
+    min-width: 100%;
+  }
+
+  .s-hero {
+    min-height: 100svh !important;
+    padding-bottom: calc(var(--section-padding) * 0.4);
+  }
+
+  /* Impact text */
+  .on-track-impact-text-w {
+    max-width: 100%;
+  }
+
+  .text-impact-lg-mona {
+    font-size: clamp(1.75rem, 6vw, 3rem);
+  }
+
+  /* Podium / Large counter */
   .on-t-podium-text-layout {
     flex-direction: column;
     gap: 0.5rem;
   }
 
+  /* Stat counters */
+  .stat-counter-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--gap) * 0.5);
+  }
+
+  .stat-counter-item {
+    padding: 1rem 0.75rem;
+  }
+
+  /* Career stats */
+  .f1-car-stats-grid {
+    gap: calc(var(--gap) * 1.5);
+  }
+
+  /* Highlight grid — simplified */
+  .f1-highlight-grid {
+    grid-template-columns: 2fr 1fr 1fr;
+    font-size: 0.85rem;
+  }
+
+  .f1-highlight-grid-item.hide-mobile {
+    display: none;
+  }
+
+  /* Project cards */
+  .helmet-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: calc(var(--gap) * 0.75);
+  }
+
+  /* Calendar accordion */
+  .calendar-dropdown-trigger {
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  /* Contact links */
   .contact-links {
     flex-direction: column;
     width: 100%;
@@ -2144,23 +2247,167 @@ canvas[data-rive-hero-title] {
     width: 100%;
     justify-content: center;
   }
+
+  /* Title layout */
+  .title-layout .title-headline-w,
+  .title-layout .title-para-w {
+    grid-column: 1 / -1;
+  }
+
+  /* Spacers */
+  .spacer._8rem,
+  .spacer._10rem,
+  .spacer._12rem,
+  .spacer._14rem {
+    height: 3rem;
+  }
+
+  /* Social cards */
+  .callout-socials-card-w {
+    width: clamp(220px, 60vw, 300px);
+  }
+
+  /* Marquee */
+  .marquee-item {
+    font-size: clamp(2rem, 8vw, 4rem);
+  }
+
+  .footer-marquee-item {
+    font-size: clamp(3rem, 8vw, 6rem);
+  }
+
+  /* Grid layout */
+  .grid-main {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section padding */
+  .s {
+    padding: clamp(3rem, 6vw, 5rem) 0;
+  }
 }
 
+/* ===== MOBILE PORTRAIT (max-width: 479px) ===== */
 @media (max-width: 479px) {
   :root {
     --container-padding: 1.25rem;
+    --gap: 0.75rem;
   }
 
   .nav-inner {
     height: calc(var(--nav-height) + var(--gap));
   }
 
-  .text-impact-lg-mona {
-    font-size: clamp(2rem, 8vw, 3rem);
+  .nav-brand {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
   }
 
+  .hero-title-main {
+    font-size: clamp(2rem, 14vw, 4rem);
+  }
+
+  .hero-title-top {
+    font-size: clamp(1rem, 4vw, 1.5rem);
+  }
+
+  .text-impact-lg-mona {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  /* Stat counters */
+  .stat-counter-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .stat-counter-num {
+    font-size: clamp(1.5rem, 8vw, 2.5rem);
+  }
+
+  /* Career stats */
+  .f1-car-stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .f1-car-stat-past-v2-w {
+    grid-column: span 1;
+  }
+
+  /* Highlight grid — minimal on phone */
+  .f1-highlight-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding: 0.75rem 0;
+    font-size: 0.8rem;
+  }
+
+  /* Project cards */
+  .helmet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .helmet-grid-item-w {
+    aspect-ratio: 4 / 3;
+  }
+
+  /* Calendar */
   .calendar-dropdown-trigger {
     grid-template-columns: 1fr 2fr;
     gap: 0.5rem;
+    padding: 0.75rem 0;
+  }
+
+  .calendar-dropdown-detail {
+    padding: 1rem;
+  }
+
+  /* Social cards */
+  .callout-socials-card-w {
+    width: clamp(200px, 70vw, 280px);
+    aspect-ratio: 3 / 4;
+  }
+
+  /* Marquee */
+  .marquee-item {
+    font-size: clamp(1.5rem, 10vw, 3rem);
+    padding: 0 1rem;
+  }
+
+  .footer-marquee-item {
+    font-size: clamp(2rem, 10vw, 4rem);
+    padding: 0 1.5rem;
+  }
+
+  /* Sections */
+  .s {
+    padding: clamp(2.5rem, 5vw, 4rem) 0;
+  }
+
+  /* Title layout */
+  .title-layout {
+    margin-bottom: calc(var(--gap) * 2);
+  }
+
+  /* Buttons on mobile */
+  .btn-w {
+    font-size: 0.75rem;
+    padding: 0.5rem 1rem;
+  }
+
+  /* Nav menu */
+  .nav-menu-link {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+  }
+
+  /* WebGL */
+  .webgl-canvas {
+    opacity: 0.15;
+  }
+
+  /* Noise — lighter on mobile for performance */
+  .noise-overlay {
+    opacity: 0.02;
+    background-size: 64px 64px;
   }
 }
