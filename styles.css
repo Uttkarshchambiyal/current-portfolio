@@ -1878,22 +1878,6 @@ canvas[data-rive-hero-title] {
   transition: text-shadow 0.8s ease;
 }
 
-/* ---------- SCROLL VELOCITY SKEW ---------- */
-.main-w {
-  will-change: transform;
-  transition: transform 0.1s ease-out;
-}
-
-/* ---------- CINEMATIC SECTION REVEAL ---------- */
-.s[data-reveal] {
-  clip-path: inset(8% 4% 8% 4% round 1rem);
-  transition: clip-path 0.01s;
-}
-
-.s[data-reveal].is-revealed {
-  clip-path: inset(0% 0% 0% 0% round 0rem);
-}
-
 /* ---------- NAV MENU LINK HOVER ENHANCEMENT ---------- */
 .nav-menu-link {
   position: relative;

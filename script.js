@@ -312,20 +312,20 @@ function initHeroTimeline() {
     // Title moves up faster than scroll
     if (heroMain) {
       gsap.to(heroMain, {
-        yPercent: -60, ease: 'none',
+        yPercent: -30, ease: 'none',
         scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
       });
     }
     if (heroTop) {
       gsap.to(heroTop, {
-        yPercent: -40, ease: 'none',
+        yPercent: -20, ease: 'none',
         scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
       });
     }
     // Info grid moves slower
     if (heroInfo) {
       gsap.to(heroInfo, {
-        yPercent: -20, ease: 'none',
+        yPercent: -10, ease: 'none',
         scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
       });
     }
@@ -333,7 +333,7 @@ function initHeroTimeline() {
     const webglCanvas = document.getElementById('webglCanvas');
     if (webglCanvas) {
       gsap.to(webglCanvas, {
-        scale: 0.9, opacity: 0.15, ease: 'none',
+        scale: 0.95, opacity: 0.2, ease: 'none',
         scrollTrigger: { trigger: heroSection, start: 'top top', end: 'bottom top', scrub: true }
       });
     }
@@ -1049,26 +1049,21 @@ function initCinematicReveals() {
   // Apply reveal to all sections except hero
   document.querySelectorAll('.s').forEach(section => {
     if (section.classList.contains('s-hero')) return;
-    section.setAttribute('data-reveal', '');
 
-    gsap.to(section, {
-      scrollTrigger: {
-        trigger: section,
-        start: 'top 90%',
-        end: 'top 40%',
-        scrub: 0.5,
-        onUpdate: (self) => {
-          const p = self.progress;
-          const inset = 8 * (1 - p);
-          const side = 4 * (1 - p);
-          const radius = 1 * (1 - p);
-          section.style.clipPath = `inset(${inset}% ${side}% ${inset}% ${side}% round ${radius}rem)`;
-        },
-        onLeaveBack: () => {
-          section.style.clipPath = `inset(8% 4% 8% 4% round 1rem)`;
+    // Start fully visible — the scrub will clip on scroll-back
+    gsap.fromTo(section, 
+      { clipPath: 'inset(6% 3% 6% 3% round 0.75rem)' },
+      {
+        clipPath: 'inset(0% 0% 0% 0% round 0rem)',
+        ease: 'none',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 85%',
+          end: 'top 50%',
+          scrub: 0.3,
         }
       }
-    });
+    );
   });
 }
 
@@ -1099,7 +1094,7 @@ function initMagneticButtons() {
     btn.addEventListener('mouseleave', () => {
       gsap.to(btn, {
         x: 0, y: 0,
-        duration: 0.6, ease: 'elastic.out(1, 0.5)'
+        duration: 0.5, ease: 'power3.out'
       });
     });
   });
@@ -1113,24 +1108,19 @@ function initMagneticButtons() {
 function initScrollVelocityEffects() {
   if (!lenis) return;
 
-  const mainContent = document.querySelector('.main-w');
   const marquees = document.querySelectorAll('.marquee-track, .footer-marquee-track');
   let currentSkew = 0;
 
   gsap.ticker.add(() => {
     const velocity = lenis.velocity || 0;
-    const targetSkew = Math.max(-2, Math.min(2, velocity * 0.04));
-    currentSkew += (targetSkew - currentSkew) * 0.1;
-
-    if (mainContent && Math.abs(currentSkew) > 0.01) {
-      mainContent.style.transform = `skewY(${currentSkew}deg)`;
-    } else if (mainContent) {
-      mainContent.style.transform = '';
-    }
+    
+    // Subtle skew — capped at ±1 degree for clean feel
+    const targetSkew = Math.max(-1, Math.min(1, velocity * 0.02));
+    currentSkew += (targetSkew - currentSkew) * 0.08;
 
     // Marquee speed boost on fast scroll
     marquees.forEach(m => {
-      const boost = 1 + Math.abs(velocity) * 0.003;
+      const boost = 1 + Math.abs(velocity) * 0.002;
       m.style.animationDuration = `${30 / boost}s`;
     });
   });
