@@ -745,18 +745,13 @@ p,
 /* ---------- SPLIT TEXT ANIMATION CLASSES ---------- */
 [split-text] .line {
   position: relative;
-  clip-path: polygon(0 -5%, 0 100%, 100% 100%, 100% -5%);
+  overflow: clip;
   display: block;
 }
 
 [split-text] .line .word {
   display: inline-block;
-  transform: translateY(110%);
   will-change: transform;
-}
-
-[split-text].is-revealed .line .word {
-  transform: translateY(0);
 }
 
 [split-text] .char {
@@ -1288,93 +1283,134 @@ p,
   line-height: 1.1;
 }
 
-/* ---------- 10. FOOTER ---------- */
-.footer {
+/* ---------- 10. FOOTER — LANDO NORRIS STYLE ---------- */
+.footer-ln {
   position: relative;
-  padding: var(--section-padding) var(--container-padding);
-  background: var(--color--dark-green);
+  background: #1a1e05;
+  border-radius: 2rem 2rem 0 0;
+  margin-top: -2rem;
+  padding: 0;
+  overflow: hidden;
+  z-index: 2;
 }
 
-/* Premium gradient fade at top of footer */
-.footer::before {
-  content: '';
-  position: absolute;
-  top: -80px;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, transparent, var(--color--dark-green));
-  pointer-events: none;
+/* Footer hero statement */
+.footer-ln-hero {
+  padding: clamp(4rem, 10vw, 10rem) var(--container-padding) clamp(3rem, 6vw, 6rem);
+  text-align: center;
 }
 
-.footer-layout {
-  display: grid;
-  grid-template-columns: 2fr repeat(3, 1fr);
-  gap: calc(var(--gap) * 2);
+.footer-ln-hero-text {
+  font-family: 'Mona Sans', sans-serif;
+  font-variation-settings: "wght" 800, "wdth" 90;
+  font-size: clamp(2.5rem, 7vw, 7rem);
+  text-transform: uppercase;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--color--white);
 }
 
-@media (max-width: 767px) {
-  .footer-layout {
-    grid-template-columns: 1fr 1fr;
-  }
+.footer-ln-italic {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color--lime);
 }
 
-@media (max-width: 479px) {
-  .footer-layout {
-    grid-template-columns: 1fr;
-  }
+/* Footer navigation */
+.footer-ln-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 clamp(3rem, 10vw, 12rem);
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-.footer-col {
+.footer-ln-nav-col {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
-.footer-col-title {
+.footer-ln-nav-col-right {
+  text-align: right;
+}
+
+.footer-ln-nav-label {
   font-family: 'Mona Sans', sans-serif;
-  font-variation-settings: "wght" 600, "wdth" 100;
+  font-variation-settings: "wght" 600;
   font-size: 0.6875rem;
   text-transform: uppercase;
   letter-spacing: 0.15em;
   color: var(--color--grey-on-track);
+  margin-bottom: 0.5rem;
 }
 
-.footer-col a {
+.footer-ln-nav-link {
   font-family: 'Mona Sans', sans-serif;
-  font-variation-settings: "wght" 500;
-  font-size: 0.875rem;
-  color: var(--color--white);
-  transition: color var(--animation-default);
-}
-
-.footer-col a:hover {
-  color: var(--color--lime);
-}
-
-.footer-brand {
-  font-family: 'Mona Sans', sans-serif;
-  font-variation-settings: "wght" 800, "wdth" 95;
-  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-variation-settings: "wght" 700, "wdth" 95;
+  font-size: clamp(1rem, 1.6vw, 1.375rem);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--color--grey-on-track);
+  letter-spacing: -0.01em;
+  color: var(--color--white);
+  text-decoration: none;
+  line-height: 1.3;
+  transition: color var(--animation-default), transform var(--animation-default);
+  display: block;
 }
 
-.footer-bottom {
-  margin-top: calc(var(--gap) * 4);
-  padding-top: calc(var(--gap) * 2);
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+.footer-ln-nav-link:hover {
+  color: var(--color--lime);
+  transform: translateX(4px);
+}
+
+.footer-ln-nav-col-right .footer-ln-nav-link:hover {
+  transform: translateX(-4px);
+}
+
+.footer-ln-accent {
+  color: var(--color--lime) !important;
+}
+
+/* CTA */
+.footer-ln-cta {
+  display: flex;
+  justify-content: center;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+/* Footer marquee */
+.footer-ln-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: calc(var(--gap) * 2) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Copyright bar */
+.footer-ln-bottom {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1.5rem var(--container-padding);
 }
 
-.footer-bottom-text {
+.footer-ln-copyright {
   font-family: 'Mona Sans', sans-serif;
   font-variation-settings: "wght" 400;
   font-size: 0.75rem;
   color: var(--color--grey-on-track);
+}
+
+.footer-ln-copyright strong {
+  font-variation-settings: "wght" 600;
+  color: var(--color--white);
+}
+
+.footer-ln-bottom-links {
+  display: flex;
+  gap: 1.5rem;
 }
 
 .footer-back-top {
@@ -1386,10 +1422,35 @@ p,
   color: var(--color--grey-on-track);
   cursor: pointer;
   transition: color var(--animation-default);
+  background: none;
+  border: none;
 }
 
 .footer-back-top:hover {
   color: var(--color--lime);
+}
+
+/* Footer responsive */
+@media (max-width: 767px) {
+  .footer-ln-nav {
+    flex-direction: column;
+    gap: 2.5rem;
+    align-items: center;
+    text-align: center;
+    padding: 0 var(--container-padding);
+  }
+  .footer-ln-nav-col-right {
+    text-align: center;
+  }
+  .footer-ln-nav-link:hover,
+  .footer-ln-nav-col-right .footer-ln-nav-link:hover {
+    transform: none;
+  }
+  .footer-ln-bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
 }
 
 /* ---------- MARQUEE ---------- */
@@ -1949,12 +2010,11 @@ canvas[data-rive-hero-title] {
 }
 
 /* ---------- LINK UNDERLINE ANIMATION ---------- */
-.footer-col a {
+.footer-ln-nav-link {
   position: relative;
-  display: inline-block;
 }
 
-.footer-col a::after {
+.footer-ln-nav-link::after {
   content: '';
   position: absolute;
   bottom: -2px;
@@ -1965,7 +2025,12 @@ canvas[data-rive-hero-title] {
   transition: width var(--animation-default);
 }
 
-.footer-col a:hover::after {
+.footer-ln-nav-col-right .footer-ln-nav-link::after {
+  left: auto;
+  right: 0;
+}
+
+.footer-ln-nav-link:hover::after {
   width: 100%;
 }
 
